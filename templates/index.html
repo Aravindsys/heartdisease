@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>
+ Heart Disease Prognosis
+</title>
 <style>
+body {
+  font-size: 40px;
+  padding: 5px 40px;
+}
+
 table {
   font-family: arial, sans-serif;
   border: 1px solid black;
@@ -26,9 +34,13 @@ tr:nth-child(even) {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 40px;
   margin: 4px 2px;
   cursor: pointer;
+}
+input {
+  height:100px;
+  font-size:23px;
 }
 </style>
 </head>
@@ -40,7 +52,7 @@ tr:nth-child(even) {
 </div>
 <!-- <image src="{{ url_for('static',filename=image_path)}}" alt="Compressed image"> -->
 <form action='/predict' method='POST'>
-   <table>
+   <table >
   <tr>
     <td><label>1) Enter Your Age</label></td>
     <td><input type="text" name="age" placeholder="Age" required="required" /></td>
@@ -85,9 +97,7 @@ tr:nth-child(even) {
     </tr>
    </table>
 </form>
-<div>
-  {{ prediction_text }}
-</div>
+
 
 </center>
 </body>
