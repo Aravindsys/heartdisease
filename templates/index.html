@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 15px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body><center>
+<h1>Check Whether You have Heart Disease or Not !</h1>
+<h3>Within minutes !</h3>
+<div>
+  <h3 style="color:blue;">{{ prediction_text }}</h3>
+</div>
+<!-- <image src="{{ url_for('static',filename=image_path)}}" alt="Compressed image"> -->
+<form action='/predict' method='POST'>
+   <table>
+  <tr>
+    <td><label>1) Enter Your Age</label></td>
+    <td><input type="text" name="age" placeholder="Age" required="required" /></td>
+  </tr>   
+  <tr><td> <label>2) Enter the gender<br>1 - Man<br>0 - Woman</label></td>
+   <td> <input type="text" name="gender" placeholder="Gender" required="required" /></td>
+  </tr>
+  <tr> <td><label>3) Enter how frequently you get your chest pain <br>
+                   0 - Not at all<br>1- once in a month<br> 2 - twice a month<br> 3 - once a week</label>
+       </td>
+      <td><input type="text" name="chestpain" placeholder="Chest Pain frequency" required="required" /></td>
+   </tr>
+   <tr> <td> <label>4) Your Resting Blood pressure level in mmHG (Normal level ranges from 80-120mmHG)</label>
+        </td>
+    <td>
+   <input type="text" name="restingbp" placeholder="Blood Pressure Level" required="required" /></td>
+   </tr>
+   <tr><td><label>5) Your serum Cholesterol Level in mg/dl (Normal level ranges from 150-170mg/dc)</label>
+          </td>
+    <td>
+   <input type="text" name="cholesterol" placeholder="Serum Cholesterol Level" required="required" /></td>
+    </tr>
+    <tr> <td><label>6) Your Blood Sugar Level in mg/dc (Enter 1 if above 120mg/dc or Enter 0) </label></td>
+    <td>
+  <input type="text" name="fbs" placeholder="Blood Sugar Level" required="required" /></td>
+    </tr>
+   <tr><td><label>7) Your Resting Electro Cardiographic results.<br>0 - Normal<br>1 - Abnormal<br>2 - Hyper</label></td>
+     <td>
+   <input type="text" name="restecg" placeholder="Resting Electro Cardiographic value" required="required" /></td>
+    </tr>
+   <tr><td><label>8) Your Maximum Heart rate in BPM (Normal value ranges from 60-100 BPM)</label></td>
+    <td>
+   <input type="text" name="heartrate" placeholder="Maximum Heart Rate" required="required" /></td>
+   </tr>
+   <tr><td><label>9) External Angina Taken.<br>Enter 0 if not taken or 1 if taken</label></td>
+   <td>
+   <input type="text" name="exang" placeholder="Whether exercise induced Angina Taken" required="required" /></td>
+   </tr>
+   <tr><td></td><td>
+   <button type='submit' value="submit" class="button">Submit</button>
+   </td>
+    </tr>
+   </table>
+</form>
+<div>
+  {{ prediction_text }}
+</div>
+
+</center>
+</body>
+</html>
